@@ -1,4 +1,4 @@
-﻿name: CI
+name: CI
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
           node-version: 24
           cache: pnpm
 
-      - name: Instalar dependÃªncias
+      - name: Instalar dependencias
         run: pnpm install --frozen-lockfile
 
       - name: Lint (Biome)
@@ -51,13 +51,13 @@ jobs:
           node-version: 24
           cache: pnpm
 
-      - name: Instalar dependÃªncias
+      - name: Instalar dependencias
         run: pnpm install --frozen-lockfile
 
       - name: Deploy
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
-            echo "::notice::CLOUDFLARE_API_TOKEN ausente â€” deploy pulado. Crie o token no painel Cloudflare (modelo 'Edit Cloudflare Workers') e adicione os secrets CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID no GitHub para ativar."
+            echo "::notice::CLOUDFLARE_API_TOKEN ausente - deploy pulado. Crie o token no painel Cloudflare (modelo 'Edit Cloudflare Workers') e adicione os secrets CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID no GitHub para ativar."
             exit 0
           fi
           pnpm --filter @balcao/api exec wrangler deploy
