@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "balcao-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-04-01",
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "balcao-producao",
+      "database_id": "33ac172c-1776-4790-ae28-f465fd6ba9d8"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "FLAGS",
+      "id": "ff6b1aeca4924b4986cd9d83d1d02742"
+    }
+  ]
+  // R2 (fotos de produtos): exige ativar o R2 no painel Cloudflare (R2 > comprar plano free).
+  // Depois de ativado, criar o bucket "balcao-arquivos" e descomentar:
+  // "r2_buckets": [{ "binding": "ARQUIVOS", "bucket_name": "balcao-arquivos" }],
+  // Cron do outbox fiscal — ativar na Onda 1:
+  // "triggers": { "crons": ["* * * * *"] }
+}
