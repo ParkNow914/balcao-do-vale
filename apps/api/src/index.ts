@@ -4,7 +4,7 @@ export type Env = {
   Bindings: {
     DB: D1Database;
     FLAGS: KVNamespace;
-    // ARQUIVOS: R2Bucket; — descomentar após ativar o R2 no painel Cloudflare
+    ARQUIVOS: R2Bucket;
   };
 };
 
